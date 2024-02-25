@@ -18,3 +18,14 @@ We currently use the following sources for our Data-Pipeline
 3) Livestock Input (Needs Brainstorming)
 4) Food Price v/s Average Income Input (Needs Brainstorming)
 5) Output Dataset (Needs Brainstorming) - Global Food and Nutrition Security Dashboard
+
+Working List
+- Vegetation - https://glad.umd.edu/dataset/croplands/
+- Transportation Networks
+- Climate/Weather
+- Pests
+- Purchasing Power (GDP/Capita Maybe compared to average Food Price)
+- Supply Capacity (Population vs Food Storage)
+- Conflict/Disasters
+- Food Wastage
+- Grocery/Livestock
