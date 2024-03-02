@@ -1,0 +1,19 @@
+# guiding questions: what's the data? and how do we get it?
+- natural vegetation -> global cropland map, configure with open street map api to do geolocation by district. Districts defined as: as parsimonious as possible. 
+- population growth
+- wealth inequality
+- income inequality
+- is it possible to plot grocery stores or communal farmland by district also? google maps requests? - max will do this
+- level of conflict -- can do manually, probably, lmao
+- development index -- definitely exists at the country level, can probably just use this and disseminate it by district
+- gini coefficient
+- regime type? democracy, autocracy, etc. White hot encode it.
+- migration -- max doing also
+- climate (temp, humidity, precipitation)
+- extreme weather
+- urbanization
+- gender inequality index
+- nutritional deficiency https://platform.who.int/mortality/themes/theme-details/topics/topic-details/MDB/nutritional-deficiencies 
+- purchasing power
+- gdp
+- food price index https://www.fao.org/worldfoodsituation/foodpricesindex/en/ 
