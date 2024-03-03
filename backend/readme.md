@@ -10,3 +10,12 @@ Need result of model
     - Cor Grid
 
 - Conflict and disaster
+
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
+
