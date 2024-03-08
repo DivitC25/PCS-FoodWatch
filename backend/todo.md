@@ -29,4 +29,4 @@ In lieu of divit creating the backend kanban here is what we need to do
 # Dev Ops
 - [ ] Docker Container for development
 - [ ] Host Client
-- [ ] Some Dynamic way of spiing out containers to compuete the ML things
+- [ ] Some Dynamic way of spiting out containers to compute the ML things
