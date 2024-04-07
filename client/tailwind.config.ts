@@ -8,7 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      
+      colors: {
+        darkpurple: "#1E1829"
+      },
     },
   },
   plugins: [],

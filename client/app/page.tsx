@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Map from "./pages/Map";
+import NewComponent from "./pages/components/NewComponent";
+import Home from "./pages/Home";
 
-const Home = () => {
+const Page = () => {
   return (
     <main className="w-screen h-screen">
-      <Map />
+      <Home />
     </main>
   );
 };
 
-export default Home;
+export default Page;
