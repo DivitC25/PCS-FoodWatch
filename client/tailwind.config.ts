@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        darkpurple: "#1E1829"
+        darkpurple: "#1E1829",
+        gray: "#322E39"
       },
     },
   },
