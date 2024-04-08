@@ -3,15 +3,15 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontaw
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface NavlinkProps {
-  text: string;
+  children: string;
   icon: IconProp;
 }
 
-const Navlink: React.FC<NavlinkProps> = ({text, icon}) => {
+const Navlink: React.FC<NavlinkProps> = ({children, icon}) => {
   return (
     <div className = 'navlink'> 
       <FontAwesomeIcon icon={icon} className = "icon" /> 
-      <span className = "textNav">{text}</span>
+      <span className = "textNav">{children}</span>
     </div>
   )
 }
