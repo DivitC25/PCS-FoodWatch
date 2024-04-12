@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -31,3 +31,37 @@ body {
     text-wrap: balance;
   }
 }
+
+.navlink {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.navlink:hover {
+  background-color:dimgray;
+  .icon{
+    color:white;
+  }
+}
+.icon {
+  margin-right: 30px;
+  height: 25px;
+  width: 25px;
+  color: #636363;
+}
+.textNav {
+  color: #FFF;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.title {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  color: #FFF;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style:bold;
+}
+
