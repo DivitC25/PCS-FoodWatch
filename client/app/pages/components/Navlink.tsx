@@ -9,7 +9,7 @@ interface NavlinkProps {
 
 const Navlink: React.FC<NavlinkProps> = ({children, icon}) => {
   return (
-    <div className = 'navlink'> 
+    <div className = 'navlink cursor-pointer'> 
       <FontAwesomeIcon icon={icon} className = "icon" /> 
       <span className = "textNav">{children}</span>
     </div>
