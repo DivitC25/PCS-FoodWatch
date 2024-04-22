@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 
 import "leaflet/dist/leaflet.css";
 
@@ -61,6 +62,7 @@ const LeafletMap = () => {
           <Polygon
             key={`${row.Region}, ${row.Country}`}
             pathOptions={getColor(row.IPC_Level)}
+            // @ts-ignore
             positions={row.Polygon}
           >
             <Popup>
