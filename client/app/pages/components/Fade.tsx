@@ -48,10 +48,10 @@ const Fade = ({ delay, className, children, onScroll = false, key = 0, style={} 
                 window.removeEventListener('scroll', handleScroll);
             }
         };
-    }, []);
+    }, [delay, onScroll]);
 
     return (
-        <div ref={ref} key={key} style={style} className={className} style={{ transition: "0.7s", opacity: opacity, transform: transform }}>
+        <div ref={ref} key={key} className={className} style={{ transition: "0.7s", opacity: opacity, transform: transform, ...style }}>
             {children}
         </div>
     );
