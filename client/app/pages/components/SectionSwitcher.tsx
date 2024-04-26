@@ -27,7 +27,7 @@ const SectionSwitcher = ({
     }
   }
   return (
-    <div className="w-full flex flex-row items-center justify-center">
+    <div className="w-full flex flex-row items-center justify-center mb-16">
       {sectionOptions.map((option, key) => (
         <div key={key} onClick={() => {
             setCurrSection(option);

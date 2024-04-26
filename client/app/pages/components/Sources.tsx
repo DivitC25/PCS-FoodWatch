@@ -25,7 +25,7 @@ const Sources = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2 my-16 box-border h-full text-center items-center justify-center">
+    <div className="flex flex-col gap-2 my-20 mt-28 box-border h-full text-center items-center justify-center">
       <Fade
         delay={0}
         className="text-5xl text-white font-bold text-purple-300 duration-200"

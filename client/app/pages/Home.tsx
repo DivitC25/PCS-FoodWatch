@@ -9,6 +9,7 @@ import About from "./components/About";
 import Fade from "./components/Fade";
 import Model from "./components/Model";
 import Divider from "./components/Divider";
+import RiskLevels from "./components/RiskLevels";
 
 interface Props {
   setIsOnHome: Dispatch<SetStateAction<boolean>>;
@@ -32,7 +33,7 @@ const Home = ({ setIsOnHome }: Props) => {
           <div className="absolute h-full w-screen bg-black opacity-40"></div>
           <div className="w-1/4 h-full flex flex-col justify-center items-start gap-4 ml-[4%]">
             <Fade className="relative text-5xl font-bold scale-y-105" delay={0}>
-              A Small Scale Food Scarcity Map
+              A Small Scale Food Security Map
             </Fade>
             <Fade className="relative" delay={0}>
               Built to provide real-time global data to best understand the
@@ -40,7 +41,14 @@ const Home = ({ setIsOnHome }: Props) => {
             </Fade>
           </div>
         </div>
-        <div className="flex flex-row items-center justify-center duration-1000 transition">
+        <div
+          className="flex flex-col items-center justify-center duration-1000 transition relative"
+          style={{
+            backgroundColor: "hsla(261,26%,12%,1)",
+            backgroundImage:
+              "radial-gradient(at 93% 88%, hsla(261,56%,22%,1) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(261,26%,12%,1) 0px, transparent 50%), radial-gradient(at 12% 70%, hsla(266,46%,31%,1) 0px, transparent 50%)",
+          }}
+        >
           {currSection == "About" ? (
             <About />
           ) : currSection == "Sources" ? (
@@ -48,14 +56,19 @@ const Home = ({ setIsOnHome }: Props) => {
           ) : (
             <Model />
           )}
+          <SectionSwitcher
+            currSection={currSection}
+            setCurrSection={setCurrSection}
+            sectionOptions={["About", "Sources", "Model"]}
+          />
         </div>
-        <SectionSwitcher
-          currSection={currSection}
-          setCurrSection={setCurrSection}
-          sectionOptions={["About", "Sources", "Model"]}
-        />
+        <div className="relative width-[100vw]">
+          <WhoWeAre />
+        </div>
+        <div className="relative width-[100vw]">
+          <RiskLevels />
+        </div>
       </div>
-      <WhoWeAre />
     </div>
   );
 };

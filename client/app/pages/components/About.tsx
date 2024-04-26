@@ -12,7 +12,7 @@ const About = () => {
         </Fade>
         <Fade className="text-lg text-purple-100 leading-loose" delay={300}>
           FoodWatch is aimed at creating a frequently updated small scale food
-          scarcity map software that derives it&apos;s data from open-source
+          security map software that derives it&apos;s data from open-source
           satellite imagery.
         </Fade><Fade className="text-lg text-purple-100 leading-loose" delay={600}>
           We hope to aide governments, especially belonging to developing and
