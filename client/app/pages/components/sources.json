@@ -1,17 +1,38 @@
 [
     {
-        "img": "/map.png",
-        "title": "Source 1",
-        "children": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing elit pellentesque habitant morbi tristique senectus et. Id aliquet risus feugiat in ante metus dictum at. Pharetra magna ac placerat vestibulum lectus mauris ultrices. Ultrices tincidunt arcu non sodales neque sodales ut etiam sit. Non blandit massa enim nec. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Non sodales neque sodales ut. Blandit cursus risus at ultrices. Integer vitae justo eget magna fermentum iaculis eu. Augue ut lectus arcu bibendum at varius vel pharetra vel. Nulla at volutpat diam ut venenatis tellus in metus vulputate. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus a."
+        "img": "/ipc.jpg",
+        "link": "https://www.ipcinfo.org/ipc-country-analysis/ipc-mapping-tool/",
+        "title": "IPC",
+        "children": "Our main source used for model training and development. Integrated Food Security Phases Classification (IPC) provided testing data and standards for determining food security risk levels in high risk countries."
     },
     {
-        "img": "/map.png",
-        "title": "Source 2",
-        "children": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing elit pellentesque habitant morbi tristique senectus et. Id aliquet risus feugiat in ante metus dictum at. Pharetra magna ac placerat vestibulum lectus mauris ultrices. Ultrices tincidunt arcu non sodales neque sodales ut etiam sit. Non blandit massa enim nec. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Non sodales neque sodales ut. Blandit cursus risus at ultrices. Integer vitae justo eget magna fermentum iaculis eu. Augue ut lectus arcu bibendum at varius vel pharetra vel. Nulla at volutpat diam ut venenatis tellus in metus vulputate. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus a."
+        "img": "/glad.png",
+        "link": "https://glad.umd.edu/dataset/GLCLUC2020",
+        "title": "GLAD",
+        "children": "Provided satellite imagery that creates a map of global crop-cover. Crop-cover could be a key link to agricultural product and help asses food scarcity risk levels."
     },
     {
-        "img": "/map.png",
-        "title": "Source 3",
-        "children": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing elit pellentesque habitant morbi tristique senectus et. Id aliquet risus feugiat in ante metus dictum at. Pharetra magna ac placerat vestibulum lectus mauris ultrices. Ultrices tincidunt arcu non sodales neque sodales ut etiam sit. Non blandit massa enim nec. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Non sodales neque sodales ut. Blandit cursus risus at ultrices. Integer vitae justo eget magna fermentum iaculis eu. Augue ut lectus arcu bibendum at varius vel pharetra vel. Nulla at volutpat diam ut venenatis tellus in metus vulputate. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus a."
+        "img": "/osm.jpg",
+        "link": "https://www.openstreetmap.org/#map=5/38.007/-95.844",
+        "title": "OpenStreetMap",
+        "children": "Provides polygon data and open source mapping technology to create an interactive map. Also provided metrics on food storage density and transport as features for our model."
+    },
+    {
+        "img": "/acled.png",
+        "link": "https://acleddata.com/",
+        "title": "ACLED",
+        "children": "The Armed Conflict Location & Event Data Project (ACLED) collects real-time data on the location, dates, actors, fatalities, and reported political violence and protest events worldwide, recorded in incident reports."
+    },
+    {
+        "img": "/fao.png",
+        "link": "https://www.fao.org/home/en",
+        "title": "FAO",
+        "children": "The Food and Agriculture Organization of the United Nations provides yearly reports on the state of food wastage around the globe."
+    },
+    {
+        "img": "/gems.png",
+        "link": "https://gems.umn.edu/global-crop-pest-risk-geographies",
+        "title": "GEMS Informatics",
+        "children": "The University of Minnesota's GEMS Informatics API collects accurate geographic information on the climatic potential for the establishment of a given crop pest threat."
     }
 ]

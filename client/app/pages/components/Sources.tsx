@@ -1,27 +1,48 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from "react";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 import sources from "./sources.json";
-import Source from './Source';
+import Source from "./Source";
+import Fade from "./Fade";
 
 interface SourceProps {
-    children: string,
-    title: string,
-    img: string
+  children: string;
+  title: string;
+  link: string;
+  img: string;
 }
 
 const Sources = () => {
-  return (
-    <div className="w-screen flex flex-col gap-2 mt-10 box-border">
-        <h1 className="text-4xl text-white pl-[2.5%]">Sources</h1>
-        <div className="w-screen h-0.5 flex flex-row justify-center items-center">
-            <div className="bg-white w-[95%] h-0.5"></div>
-        </div>
-        <div className="flex flex-col gap-2 justify-center align-center mx-[2.5%] box-border mt-7">
-            {sources.map((source: SourceProps, key) => (
-                <Source {...source} key={key}/>
-            ))}
-        </div>
-    </div>
-  )
-}
 
-export default Sources
+  const [page, setPage] = useState(0);
+
+  const switchPage = () => {
+    setPage(1 - page);
+  }
+
+  return (
+    <div className="flex flex-col gap-2 my-16 box-border h-full text-center items-center justify-center">
+      <Fade
+        delay={0}
+        className="text-5xl text-white font-bold text-purple-300 duration-200"
+      >
+        Sources
+      </Fade>
+      <div className="flex flex-row gap-10 justify-center items-center box-border mt-7 p-5">
+        <MdOutlineKeyboardArrowLeft className="text-white text-8xl cursor-pointer hover:text-purple-200" onClick={switchPage}/>
+        <div className="w-[1000px] flex flex-row gap-10 justify-center items-center box-border mt-7 p-5">
+          {sources.slice((page * 3), (page * 3) + 3).map((source: SourceProps, key) => (
+            <Source {...source} key={key + (page * 3)} delay={(key) * 80} />
+          ))}
+        </div>
+        <MdOutlineKeyboardArrowRight className="text-white text-8xl cursor-pointer hover:text-purple-200 duration-200" onClick={switchPage} />
+      </div>
+    </div>
+  );
+};
+
+export default Sources;

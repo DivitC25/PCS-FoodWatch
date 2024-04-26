@@ -1,5 +1,6 @@
 import React from 'react';
 import members from "./members.json";
+import Divider from './Divider';
 
 interface Member {
     member: string;
@@ -7,7 +8,8 @@ interface Member {
 
 const WhoWeAre = () => {
   return (
-    <div className="w-screen flex flex-col gap-2 my-10 box-border">
+    <div className="w-screen flex flex-col gap-2 my-10 box-border bg-purple-100 relative">
+        <Divider />
         <h1 className="text-4xl text-white pl-[2.5%]">Who We Are</h1>
         <div className="w-screen h-0.5 flex flex-row justify-center items-center">
             <div className="bg-white w-[95%] h-0.5"></div>

@@ -1,0 +1,12 @@
+.canvas {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    overflow: visible;
+    justify-content: center;
+    align-items: center;
+}
+
+.sphere {
+    width: 100%;
+}
