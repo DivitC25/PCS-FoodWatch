@@ -4,7 +4,7 @@ import Script from "next/script";
 
 const Page = () => {
   return (
-    <main className="w-screen h-screen">
+    <main className="w-[100vw] h-screen overflow-x-hidden">
       <Head>
         <link
           rel="stylesheet"

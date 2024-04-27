@@ -1,23 +1,32 @@
 [
     {
-        "member": "/divit.jpg"
+        "member": "/divit.jpg",
+        "name": "Divit Chopra",
+        "role": "Project Lead"
     },
     {
-        "member": "/divit.jpg"
+        "member": "/noah.jpg",
+        "name": "Noah Abji",
+        "role": "Frontend Lead"
     },
     {
-        "member": "/divit.jpg"
+        "member": "/stephen.jpg",
+        "name": "Stephen Okita",
+        "role": "Backend Lead"
     },
     {
-        "member": "/divit.jpg"
+        "member": "/siyona.jpg",
+        "name": "Siyona Sarma",
+        "role": "Frontend Team"
     },
     {
-        "member": "/divit.jpg"
+        "member": "/alex.jpg",
+        "name": "Alex Forman",
+        "role": "ML Team"
     },
     {
-        "member": "/divit.jpg"
-    },
-    {
-        "member": "/divit.jpg"
+        "member": "/nicholas.jpg",
+        "name": "Nicholas Tran",
+        "role": "Backend Team"
     }
 ]

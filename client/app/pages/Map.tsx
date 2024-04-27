@@ -36,7 +36,7 @@ const Map = ({ setIsOnHome }: Props) => {
         <LeafletMap />
       </div>
       <div className="w-1/6 h-full box-border p-1 absolute flex flex-col gap-1 z-10">
-        <Sidebar />
+        <Sidebar setIsOnHome={setIsOnHome} />
         <Graph />
       </div>
     </>
