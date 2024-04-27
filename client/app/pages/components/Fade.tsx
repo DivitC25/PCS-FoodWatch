@@ -5,11 +5,10 @@ interface Props {
     className: string;
     children: React.ReactNode;
     onScroll?: boolean;
-    key?: number;
     style?: any
 }
 
-const Fade = ({ delay, className, children, onScroll = false, key = 0, style={} }: Props) => {
+const Fade = ({ delay, className, children, onScroll = false, style={} }: Props) => {
     const [opacity, setOpacity] = useState(0);
     const [transform, setTransform] = useState("translate(0, 1rem)");
     const ref = useRef<HTMLDivElement>(null);
@@ -51,7 +50,7 @@ const Fade = ({ delay, className, children, onScroll = false, key = 0, style={} 
     }, [delay, onScroll]);
 
     return (
-        <div ref={ref} key={key} className={className} style={{ transition: "0.7s", opacity: opacity, transform: transform, ...style }}>
+        <div ref={ref} className={className} style={{ transition: "0.7s", opacity: opacity, transform: transform, ...style }}>
             {children}
         </div>
     );

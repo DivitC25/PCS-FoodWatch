@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 import members from "./members.json";
@@ -11,15 +11,15 @@ interface Member {
 }
 
 const WhoWeAre = () => {
-
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const resizeId = window.addEventListener("resize", () => {
       setWidth(window.innerWidth);
     });
-  });
-  
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
     <div
       className="w-[100vw] flex flex-col gap-2 box-border relative pb-20 pt-20 px-[7.5%] border-t-[1px] border-slate-800"
@@ -30,7 +30,11 @@ const WhoWeAre = () => {
       }}
     >
       {" "}
-      <Fade className="text-5xl text-white leading-snug" direction="up" triggerOnce={true}>
+      <Fade
+        className="text-5xl text-white leading-snug"
+        direction="up"
+        triggerOnce={true}
+      >
         <h1>
           What is <br />
           <span className="font-bold text-purple-300 text-5xl">

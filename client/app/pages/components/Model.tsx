@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Fade from "./Fade";
@@ -16,16 +16,21 @@ const Model = () => {
     };
   }, [translation]);
 
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const resizeId = window.addEventListener("resize", () => {
       setWidth(window.innerWidth);
     });
-  });
+    setWidth(window.innerWidth);
+  }, []);
 
   return (
-    <div className={`w-full flex flex-${width > 1000 ? "row" : "col"} gap-2 mb-16 box-border h-full justify-center items-center gap-[5%] px-[7.5%]`}>
+    <div
+      className={`w-full flex flex-${
+        width > 1000 ? "row" : "col"
+      } gap-2 mb-16 box-border h-full justify-center items-center gap-[5%] px-[7.5%]`}
+    >
       <div className="h-full flex flex-col items-start justify-start flex-1 gap-10">
         <Fade delay={0} className="text-5xl font-bold text-purple-300">
           Model

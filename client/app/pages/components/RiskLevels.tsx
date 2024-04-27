@@ -40,13 +40,14 @@ const RiskLevels = () => {
     }
   };
 
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const resizeId = window.addEventListener("resize", () => {
       setWidth(window.innerWidth);
     });
-  });
+    setWidth(window.innerWidth);
+  }, []);
 
   return (
     <div

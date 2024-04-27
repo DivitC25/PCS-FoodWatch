@@ -19,7 +19,7 @@ interface SourceProps {
 const Sources = () => {
   const [page, setPage] = useState(0);
 
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
 
   const [numItems, setNumItems] = useState(
     window.innerWidth > 1200 ? 3 : window.innerWidth > 800 ? 2 : 1
@@ -27,7 +27,6 @@ const Sources = () => {
 
   useEffect(() => {
     const resizeId = window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
       if (width > 1200) {
         setNumItems(3);
       } else if (width > 800) {
@@ -37,6 +36,13 @@ const Sources = () => {
       }
     });
   }, [width]);
+
+  useEffect(() => {
+    const resizeId = window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+    setWidth(window.innerWidth);
+  }, []);
 
   const switchForward = () => {
     setPage(page + 1);
