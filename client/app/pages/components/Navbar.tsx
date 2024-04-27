@@ -25,10 +25,10 @@ const Navbar = ({ setIsOnHome }: Props) => {
         ) : null}
       </div>
       <div
-        className={`flex flex-row gap-${
-          width > 750 ? "24" : "10"
-        } h-full justify-start items-center mr-${
-          width > 750 ? "24" : "10"
+        className={`flex flex-row ${
+          width > 750 ? "gap-24" : "gap-10"
+        } h-full justify-start items-center ${
+          width > 750 ? "mr-24" : "mr-10"
         } text-xl tracking-wider`}
       >
         <div className="cursor-pointer border-b-8 border-white h-full flex flex-col justify-center items-center text-center py-8">
