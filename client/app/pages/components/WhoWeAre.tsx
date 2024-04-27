@@ -1,6 +1,7 @@
-import React from "react";
+'use client';
+
+import React, { useEffect, useState } from "react";
 import members from "./members.json";
-import Divider from "./Divider";
 import { Fade } from "react-awesome-reveal";
 
 interface Member {
@@ -10,9 +11,18 @@ interface Member {
 }
 
 const WhoWeAre = () => {
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const resizeId = window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  });
+  
   return (
     <div
-      className="w-[100vw] flex flex-col gap-2 box-border relative py-20 pt-20 px-32 border-t-[1px] border-slate-800"
+      className="w-[100vw] flex flex-col gap-2 box-border relative pb-20 pt-20 px-[7.5%] border-t-[1px] border-slate-800"
       style={{
         backgroundColor: "hsla(261,26%,12%,1)",
         backgroundImage:
@@ -59,7 +69,7 @@ const WhoWeAre = () => {
         >
           The FoodWatch Team
         </Fade>
-        <div className="flex flex-row flex-wrap gap-20 justify-center items-center">
+        <div className="flex flex-row flex-wrap gap-12 justify-center items-center">
           {members.map(({ member, name, role }: Member, key) => (
             <Fade key={key} direction="up" delay={key * 100} triggerOnce={true}>
               <div className="flex flex-col gap-1 items-center justify-center text-center">

@@ -40,9 +40,19 @@ const RiskLevels = () => {
     }
   };
 
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const resizeId = window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  });
+
   return (
     <div
-      className="w-[100vw] flex flex-row gap-12 box-border relative py-20 pt-20 px-32 border-t-[1px] border-slate-800"
+      className={`w-[100vw] flex flex-${
+        width < 1050 ? "col" : "row"
+      } gap-8 box-border relative py-20 pt-20 px-[7.5%] border-t-[1px] border-slate-800`}
       style={{
         backgroundColor: "hsla(261,26%,12%,1)",
         backgroundImage:
@@ -92,13 +102,22 @@ const RiskLevels = () => {
           </p>
         </div>
       </Fade>
-      <Fade className="flex-1 flex flex-row gap-10 justify-center items-center" triggerOnce={true} direction="up">
-        <div className="flex flex-row gap-10 justify-center items-center">
-          <MdOutlineKeyboardArrowLeft
-            className="text-white text-8xl cursor-pointer hover:text-purple-200"
-            onClick={switchBack}
-          />
-
+      <Fade
+        className="flex-1 flex flex-row gap-2 justify-center items-center"
+        triggerOnce={true}
+        direction="up"
+      >
+        <div
+          className={`flex flex-${width > 800 ? "row" : "col"} gap-${
+            width > 800 ? "5" : "3"
+          } justify-center items-center`}
+        >
+          {width > 800 ? (
+            <MdOutlineKeyboardArrowLeft
+              className="text-white text-6xl cursor-pointer hover:text-purple-200"
+              onClick={switchBack}
+            />
+          ) : null}
           {
             //@ts-ignore
             riskLevels
@@ -126,10 +145,18 @@ const RiskLevels = () => {
                   >
                     <div className="flex flex-row gap-5 items-center mb-4">
                       <div
-                        className="aspect-square h-12 w-12 border-[1px] border-solid border-slate-600 rounded-md"
+                        className={`aspect-square h-${
+                          width > 700 ? "12" : "10"
+                        } w-${
+                          width > 700 ? "12" : "10"
+                        } border-[1px] border-solid border-slate-600 rounded-md`}
                         style={{ backgroundColor: `#${color}` }}
                       ></div>
-                      <h1 className="text-2xl font-bold">{level_name}</h1>
+                      <h1
+                        className={`text-${width > 700 ? "2" : ""}xl font-bold`}
+                      >
+                        {level_name}
+                      </h1>
                     </div>
                     <div className="flex flex-col gap-3 text-md leading-loose">
                       <p>
@@ -140,7 +167,7 @@ const RiskLevels = () => {
                       </p>
                       <p>
                         <span className="font-bold text-purple-300">
-                          Description
+                          Description:
                         </span>{" "}
                         {description}
                       </p>
@@ -173,10 +200,28 @@ const RiskLevels = () => {
                 )
               )
           }
-          <MdOutlineKeyboardArrowRight
-            className="text-white text-8xl cursor-pointer hover:text-purple-200 duration-200"
-            onClick={switchForward}
-          />
+          {width > 800 ? (
+            <MdOutlineKeyboardArrowRight
+              className="text-white text-6xl cursor-pointer hover:text-purple-200 duration-200"
+              onClick={switchForward}
+            />
+          ) : null}
+          {width < 800 ? (
+            <div className="flex flex-row w-full justify-center items-center text-center gap-3">
+              <button
+                onClick={switchBack}
+                className="bg-slate-900 p-6 rounded-lg duration-300 box-border flex-1 items-center justify-center flex flex-row text-center border-[1px] border-solid border-slate-700 hover:bg-slate-800 hover:border-slate-600"
+              >
+                <MdOutlineKeyboardArrowLeft className="text-white text-3xl cursor-pointer hover:text-purple-200 duration-200" />
+              </button>
+              <button
+                onClick={switchForward}
+                className="bg-slate-900 p-6 rounded-lg duration-300 box-border flex-1 items-center justify-center flex flex-row text-center border-[1px] border-solid border-slate-700 hover:bg-slate-800 hover:border-slate-600"
+              >
+                <MdOutlineKeyboardArrowRight className="text-white text-3xl cursor-pointer hover:text-purple-200 duration-200" />
+              </button>
+            </div>
+          ) : null}
         </div>
       </Fade>
     </div>

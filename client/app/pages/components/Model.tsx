@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
 import Fade from "./Fade";
 
@@ -14,9 +16,17 @@ const Model = () => {
     };
   }, [translation]);
 
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const resizeId = window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  });
+
   return (
-    <div className="w-full flex flex-row gap-2 my-16 box-border h-full justify-center items-center gap-[5%]">
-      <div className="h-full flex flex-col items-start justify-start w-1/2 gap-10 pt-10">
+    <div className={`w-full flex flex-${width > 1000 ? "row" : "col"} gap-2 mb-16 box-border h-full justify-center items-center gap-[5%] px-[7.5%]`}>
+      <div className="h-full flex flex-col items-start justify-start flex-1 gap-10">
         <Fade delay={0} className="text-5xl font-bold text-purple-300">
           Model
         </Fade>
@@ -35,7 +45,7 @@ const Model = () => {
           information.
         </Fade>
       </div>
-      <Fade delay={300} className="w-1/3">
+      <Fade delay={300} className="flex-1">
         <img
           src="/neural-net.png"
           style={{
