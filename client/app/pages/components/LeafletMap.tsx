@@ -34,12 +34,20 @@ interface Region {
   Polygon: number[][];
 }
 
-const LeafletMap = () => {
+const LeafletMap = ({ setMapType }: string) => {
 
   const foodRiskDict = ["#06E8FA", "#FADA06", "#FA9106", "#FA3106"];
 
-  const getColor = (riskLevel: number) => {
-    return { color: foodRiskDict[riskLevel - 1]};
+  const getColor = (area: Region) => {
+    if (mapType=="Default") { 
+      return { color: foodRiskDict[area.IPC_Level - 1]};
+    } else if (mapType == "Vegetation") {
+      return {color: foodRiskDict[1]} //lowkey a v brute force sol; also unsure how many pests means which level
+    } else if (mapType == "Transportation Networks") {
+      return {color: foodRiskDict[2]} 
+    } else {
+      return {color: foodRiskDict[3]} 
+    }
   };
 
   return (
@@ -68,7 +76,7 @@ const LeafletMap = () => {
             <Popup>
               <div className="flex flex-col">
                 <h1 className="h1 font-bf">{`${row.Region}, ${row.Country}`}</h1>
-                <p className="p">{`Food Scarcity Risk Level: ${row.IPC_Level}`}</p>
+                <p className="p">{`Food Scarcity Risk Level: ${row}`}</p>
                 <p className="p">{`GDP Per Capita: ${row.GDP_Per_Capita}`}</p>
               </div>
             </Popup>

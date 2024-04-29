@@ -4,6 +4,7 @@ import React, { Dispatch, SetStateAction, useMemo } from "react";
 import Sidebar from "./components/Sidebar";
 import Graph from "./components/Graph";
 import dynamic from "next/dynamic";
+ 
 
 interface Props {
   setIsOnHome: Dispatch<SetStateAction<boolean>>;
@@ -30,13 +31,19 @@ const Map = ({ setIsOnHome }: Props) => {
     ssr: false,
   });
 
+  const [mapProps, setMapProps] = useState("Default");
+
+  const handleMapPropsChange = (newProps) => {
+    setMapProps(newProps);
+  };
+
   return (
     <>
       <div className="absolute w-screen h-screen z-0">
-        <LeafletMap />
+        <LeafletMap setMapType={mapProps}/>
       </div>
       <div className="w-1/6 h-full box-border p-1 absolute flex flex-col gap-1 z-10">
-        <Sidebar setIsOnHome={setIsOnHome} />
+        <Sidebar setIsOnHome={setIsOnHome} handleMapChange={handleMapPropsChange}/>
         <Graph />
       </div>
     </>

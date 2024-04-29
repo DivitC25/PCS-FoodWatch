@@ -1,3 +1,5 @@
+"use client";
+
 import React, { Dispatch, SetStateAction } from "react";
 import Image from 'next/image'
 import Navlink from "./Navlink";
@@ -20,6 +22,7 @@ interface NavlinkProps {
 
 interface Props {
   setIsOnHome: Dispatch<SetStateAction<boolean>>;
+  mapType: Dispatch<SetStateAction<string>>;
 }
 
 const icons: NavlinkProps[] = [
@@ -57,7 +60,11 @@ const icons: NavlinkProps[] = [
   },
 ];
 
-const Sidebar = ({ setIsOnHome }: Props) => {
+const handleMapChange = (newProps) => {
+  handleMapPropsChange(newProps);
+};
+
+const Sidebar = ({ setIsOnHome, mapType }: Props) => {
   return (
     <div className="h-[70%] bg-gray w-full rounded-xl box-border flex flex-col">
       <h2 className="title ml-5">
@@ -71,7 +78,7 @@ const Sidebar = ({ setIsOnHome }: Props) => {
         />
         Food Scarcity Interactive Map
       </h2>
-      {/* this search bar does not work */}
+      {/* search doesn't work... but it looks ok lol */}
       <form class="max-w-md mx-auto text-gray-900">   
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
         <div class="relative">
@@ -88,7 +95,7 @@ const Sidebar = ({ setIsOnHome }: Props) => {
       </form>
       {icons.map(({ text, icon }, key) => (
         // eslint-disable-next-line react/jsx-key
-        <Navlink icon={icon}>{text}</Navlink>
+        <Navlink icon={icon} key={handleMapChange(text)}/>
       ))}
       <button
         className="padding-4 cursor-pointer text-white rounded-md margin-5"
