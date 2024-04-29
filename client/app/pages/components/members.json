@@ -28,5 +28,10 @@
         "member": "/nicholas.jpg",
         "name": "Nicholas Tran",
         "role": "Backend Team"
+    },
+    {
+        "member": "/nicholas.jpg",
+        "name": "Melissa Liu",
+        "role": "Frontend Team"
     }
 ]

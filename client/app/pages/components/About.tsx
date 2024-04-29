@@ -18,6 +18,7 @@ const About = () => {
 
   return (
     <div
+      id="about"
       className={`w-screen flex flex-${
         width > breakpoint ? "row" : "col"
       } justify-center items-center mb-20 h-full gap-7 box-border px-[7.5%]`}
@@ -37,7 +38,7 @@ const About = () => {
           satellite imagery.
         </Fade>
         <Fade className="text-lg text-purple-100 leading-loose" delay={600}>
-          We hope to aide governments, especially belonging to developing and
+          We hope to aid governments, especially belonging to developing and
           underdeveloped countries in identifying areas of food scarcity,
           pinpointing causes and creating sustainable food supply chains.
         </Fade>

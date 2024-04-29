@@ -10,6 +10,8 @@ import Fade from "./components/Fade";
 import Model from "./components/Model";
 import Divider from "./components/Divider";
 import RiskLevels from "./components/RiskLevels";
+import Footer from "./components/Footer";
+
 
 interface Props {
   setIsOnHome: Dispatch<SetStateAction<boolean>>;
@@ -31,7 +33,7 @@ const Home = ({ setIsOnHome }: Props) => {
     <div className="w-screen relative bg-darkpurple overflow-hidden box-border">
       <div className="w-screen relative bg-darkpurple overflow-hidden box-border">
         <Navbar setIsOnHome={setIsOnHome} />
-        <div className="w-screen h-[60vh] relative flex flex-col justify-center items-start text-white">
+        <div id="top" className="w-screen h-[60vh] relative flex flex-col justify-center items-start text-white">
           <video
             src="/map-vid.mp4"
             className="w-screen h-full absolute top-0 left-0 object-cover"
@@ -94,6 +96,9 @@ const Home = ({ setIsOnHome }: Props) => {
         </div>
         <div className="relative width-[100vw]">
           <RiskLevels />
+        </div>
+        <div className="relative width-[100vw]">
+          <Footer setIsOnHome={setIsOnHome}/>
         </div>
       </div>
     </div>
