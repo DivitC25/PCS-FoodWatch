@@ -51,6 +51,7 @@ const RiskLevels = () => {
 
   return (
     <div
+      id="risk"  
       className={`w-[100vw] flex flex-${
         width < 1050 ? "col" : "row"
       } gap-8 box-border relative py-20 pt-20 px-[7.5%] border-t-[1px] border-slate-800`}
@@ -68,17 +69,17 @@ const RiskLevels = () => {
               Food Security Risk Levels?
             </span>
           </h1>
-          <p className="text-white leading-10">
+          <p className="text-white leading-8">
             Taken directly from the{" "}
             <span className="font-bold text-purple-300">
               Integrated Food Security Phase Classification (IPC)
             </span>
             , food security risk levels are determined from numerous factors.{" "}
-            <br />
+            <br/>
             <br />
             The{" "}
             <span className="font-bold text-purple-300">
-              First-level-outcomes
+              first-level-outcomes
             </span>{" "}
             include food consumption levels and livelihood change. <br />
             <br />
