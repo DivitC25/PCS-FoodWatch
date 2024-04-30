@@ -10,19 +10,24 @@
         "role": "Frontend Lead"
     },
     {
-        "member": "/stephen.jpg",
-        "name": "Stephen Okita",
-        "role": "Backend Lead"
-    },
-    {
         "member": "/siyona.jpg",
         "name": "Siyona Sarma",
         "role": "Frontend Team"
     },
     {
-        "member": "/alex.jpg",
-        "name": "Alex Forman",
-        "role": "ML Team"
+        "member": "/melissa.jpg",
+        "name": "Melissa Liu",
+        "role": "Frontend Team"
+    },
+    {
+        "member": "/alan.jpg",
+        "name": "Alan Menchaca",
+        "role": "Frontend Team"
+    },
+    {
+        "member": "/stephen.jpg",
+        "name": "Stephen Okita",
+        "role": "Backend Lead"
     },
     {
         "member": "/nicholas.jpg",
@@ -30,8 +35,28 @@
         "role": "Backend Team"
     },
     {
-        "member": "/nicholas.jpg",
-        "name": "Melissa Liu",
-        "role": "Frontend Team"
+        "member": "/nico.jpg",
+        "name": "Nicholas Chae",
+        "role": "Backend Team"
+    },
+    {
+        "member": "/shreyas.jpg",
+        "name": "Shreyas Venkat",
+        "role": "Backend Team"
+    },
+    {
+        "member": "/max.jpg",
+        "name": "Max Vink",
+        "role": "ML Lead"
+    },
+    {
+        "member": "/alex.jpg",
+        "name": "Alex Forman",
+        "role": "ML Team"
+    },
+    {
+        "member": "/zach.jpg",
+        "name": "Zachary Pricz",
+        "role": "ML Team"
     }
 ]
