@@ -65,3 +65,9 @@ body {
   font-style:bold;
 }
 
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: #18181b;
+  border: none;
+  border-radius: 2rem;
+}
+

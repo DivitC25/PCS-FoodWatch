@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Dispatch, SetStateAction, useMemo } from "react";
+import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Graph from "./components/Graph";
 import dynamic from "next/dynamic";
@@ -31,20 +31,15 @@ const Map = ({ setIsOnHome }: Props) => {
     ssr: false,
   });
 
-  const [mapProps, setMapProps] = useState("Default");
-
-  const handleMapPropsChange = (newProps) => {
-    setMapProps(newProps);
-  };
+  const [mapProps, setMapProps] = useState("Food Security");
 
   return (
     <>
       <div className="absolute w-screen h-screen z-0">
-        <LeafletMap setMapType={mapProps}/>
+        <LeafletMap mapType={mapProps}/>
       </div>
-      <div className="w-1/6 h-full box-border p-1 absolute flex flex-col gap-1 z-10">
-        <Sidebar setIsOnHome={setIsOnHome} handleMapChange={handleMapPropsChange}/>
-        <Graph />
+      <div className="h-full box-border p-1 absolute flex flex-col gap-1 z-10">
+        <Sidebar setIsOnHome={setIsOnHome} setMapType={setMapProps} mapType={mapProps}/>
       </div>
     </>
   );

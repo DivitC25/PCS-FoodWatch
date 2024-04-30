@@ -1,7 +1,7 @@
 "use client";
 
-import React, { Dispatch, SetStateAction } from "react";
-import Image from 'next/image'
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import Image from "next/image";
 import Navlink from "./Navlink";
 import {
   faPlantWilt,
@@ -12,8 +12,12 @@ import {
   faBox,
   faCloudRain,
   faTrash,
+  faBowlFood,
+  faHouse,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface NavlinkProps {
   text: string;
@@ -22,10 +26,25 @@ interface NavlinkProps {
 
 interface Props {
   setIsOnHome: Dispatch<SetStateAction<boolean>>;
-  mapType: Dispatch<SetStateAction<string>>;
+  setMapType: Dispatch<SetStateAction<string>>;
+  mapType: string;
 }
 
+const homeIcon: NavlinkProps = {
+  text: "Home",
+  icon: faHouse,
+};
+
+const searchIcon: NavlinkProps = {
+  text: "Search...",
+  icon: faMagnifyingGlass,
+};
+
 const icons: NavlinkProps[] = [
+  {
+    text: "Food Security",
+    icon: faBowlFood,
+  },
   {
     text: "Vegetation",
     icon: faPlantWilt,
@@ -43,7 +62,7 @@ const icons: NavlinkProps[] = [
     icon: faBug,
   },
   {
-    text: "Purchasing Power",
+    text: "GDP Per Capita",
     icon: faMoneyBill,
   },
   {
@@ -60,51 +79,78 @@ const icons: NavlinkProps[] = [
   },
 ];
 
-const handleMapChange = (newProps) => {
-  handleMapPropsChange(newProps);
-};
+const Sidebar = ({ setIsOnHome, setMapType, mapType }: Props) => {
+  const handleMapChange = (newProps: string) => {
+    setMapType(newProps);
+  };
 
-const Sidebar = ({ setIsOnHome, mapType }: Props) => {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const resizeId = window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
-    <div className="h-[70%] bg-gray w-full rounded-xl box-border flex flex-col">
-      <h2 className="title ml-5">
-        {" "}
-        <Image
-          className="icon"
-          src="/logo.png"
-          width={100}
-          height={100}
-          alt="purple box"
-        />
-        Food Scarcity Interactive Map
-      </h2>
-      {/* search doesn't work... but it looks ok lol */}
-      <form class="max-w-md mx-auto text-gray-900">   
-      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
-        <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                </svg>
-            </div>
-            <input type="search" id="default-search" 
-              class="block w-full p-2 ps-10 text-sm text-gray-200 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-              placeholder="Search Region, Country, State.." required />
-            <button type="submit" class="text-white absolute end-1 bottom-1 bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+    <div className={`bg-zinc-900 w-full rounded-xl box-border flex flex-col ${width < 800 ? "py-4" : "py-5"}`}>
+      <div className={`flex flex-row items-center px-5 ${width < 800 ? "pb-5" : "pb-6"}`}>
+        <img className={`${width < 800 ? "h-7" : "h-10"} rounded-md`} src="/logo.png" alt="purple box" />
+        {width >= 800 ? (
+          <div className="flex flex-col justify-center text-left pl-2">
+            <h2 className="text-xl text-white font-bold">FoodWatch</h2>
+            <p className="text-sm text-white">Interactive Map</p>
+          </div>
+        ) : null}
+      </div>
+      <div className={`w-full flex flex-col justify-center items-left px-5 ${width < 800 ? "gap-2" : "gap-1"}`}>
+        <div className={`w-full flex flex-row justify-center items-center ${width < 800 ? "" : "gap-1"}`}>
+          <FontAwesomeIcon
+            icon={searchIcon.icon}
+            className={`${width >= 800 ? "text-xl" : "text-lg"} text-white ${width < 800 ? "p-3" : "p-4"} bg-zinc-700 rounded-md`}
+          />
+          {width >= 800 ? (
+            <input
+              type="text"
+              placeholder={"Search..."}
+              style={{ outline: "none", color: "white" }}
+              className={`w-full h-full rounded-md flex flex-row items-center justify-left gap-4 p-3 bg-zinc-700 duration-300`}
+            ></input>
+          ) : null}
         </div>
-      </form>
-      {icons.map(({ text, icon }, key) => (
-        // eslint-disable-next-line react/jsx-key
-        <Navlink icon={icon} key={handleMapChange(text)}/>
-      ))}
-      <button
-        className="padding-4 cursor-pointer text-white rounded-md margin-5"
-        onClick={() => {
-          setIsOnHome(true);
-        }}
-      >
-        Home
-      </button>
+        {icons.map(({ text, icon }, key) => (
+          // eslint-disable-next-line react/jsx-key
+          <div
+            onClick={() => {
+              handleMapChange(text);
+            }}
+          >
+            <Navlink icon={icon} current={text == mapType}>
+              {text}
+            </Navlink>
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col text-left justify-between items-start mx-5">
+        <div className={`w-full h-[1px] bg-zinc-700 ${width < 800 ? "my-3" : "my-3"}`}></div>
+        <div
+          onClick={() => {
+            setIsOnHome(true);
+          }}
+          className={`cursor-pointer w-full rounded-md flex flex-row items-center ${
+            width < 800 ? "aspect-square justify-center" : "justify-left"
+          } gap-4 p-3 hover:bg-zinc-700 duration-300`}
+        >
+          <FontAwesomeIcon
+            icon={homeIcon.icon}
+            className={`${width >= 800 ? "text-xl" : "text-lg"} text-white`}
+          />
+          {width >= 800 ? (
+            <span className="text-white text-md">{homeIcon.text}</span>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 };

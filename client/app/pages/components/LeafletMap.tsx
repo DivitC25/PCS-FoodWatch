@@ -34,19 +34,18 @@ interface Region {
   Polygon: number[][];
 }
 
-const LeafletMap = ({ setMapType }: string) => {
-
+const LeafletMap = ({ mapType }: { mapType: string }) => {
   const foodRiskDict = ["#06E8FA", "#FADA06", "#FA9106", "#FA3106"];
 
   const getColor = (area: Region) => {
-    if (mapType=="Default") { 
-      return { color: foodRiskDict[area.IPC_Level - 1]};
+    if (mapType == "Food Security") {
+      return { color: foodRiskDict[area.IPC_Level - 1] };
     } else if (mapType == "Vegetation") {
-      return {color: foodRiskDict[1]} //lowkey a v brute force sol; also unsure how many pests means which level
+      return { color: foodRiskDict[1] }; //lowkey a v brute force sol; also unsure how many pests means which level
     } else if (mapType == "Transportation Networks") {
-      return {color: foodRiskDict[2]} 
+      return { color: foodRiskDict[2] };
     } else {
-      return {color: foodRiskDict[3]} 
+      return { color: foodRiskDict[3] };
     }
   };
 
@@ -69,15 +68,14 @@ const LeafletMap = ({ setMapType }: string) => {
           //@ts-ignore
           <Polygon
             key={`${row.Region}, ${row.Country}`}
-            pathOptions={getColor(row.IPC_Level)}
+            pathOptions={getColor(row)}
             // @ts-ignore
             positions={row.Polygon}
           >
-            <Popup>
-              <div className="flex flex-col">
-                <h1 className="h1 font-bf">{`${row.Region}, ${row.Country}`}</h1>
-                <p className="p">{`Food Scarcity Risk Level: ${row}`}</p>
-                <p className="p">{`GDP Per Capita: ${row.GDP_Per_Capita}`}</p>
+            <Popup className="m-0 p-0 border-0 p-3">
+              <div className="flex flex-col gap-1 text-white bg-zinc-900 m-4 my-6 box-border">
+                <h1 className="text-md font-bold">{`${row.Region.replaceAll("_", " ")}, ${row.Country.replaceAll("_", " ")}`}</h1>
+                <p className="text-md">{`Food Security Risk Level: ${row.IPC_Level}`}</p>
               </div>
             </Popup>
           </Polygon>
