@@ -17,6 +17,7 @@
     "@types/three": "^0.163.0",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
+    "leaflet-loading": "^0.1.24",
     "next": "14.1.1",
     "react": "^18",
     "react-awesome-reveal": "^4.2.8",

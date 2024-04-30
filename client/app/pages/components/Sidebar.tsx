@@ -54,15 +54,11 @@ const icons: NavlinkProps[] = [
     icon: faCar,
   },
   {
-    text: "Climate Suitability",
-    icon: faEarthAmericas,
-  },
-  {
     text: "Pests",
     icon: faBug,
   },
   {
-    text: "GDP Per Capita",
+    text: "Purchasing Power",
     icon: faMoneyBill,
   },
   {
@@ -104,7 +100,7 @@ const Sidebar = ({ setIsOnHome, setMapType, mapType }: Props) => {
           </div>
         ) : null}
       </div>
-      <div className={`w-full flex flex-col justify-center items-left px-5 ${width < 800 ? "gap-2" : "gap-1"}`}>
+      <div className={`w-full flex flex-col justify-center items-left px-5 ${width < 800 ? "gap-2" : "gap-2"}`}>
         <div className={`w-full flex flex-row justify-center items-center ${width < 800 ? "" : "gap-1"}`}>
           <FontAwesomeIcon
             icon={searchIcon.icon}
